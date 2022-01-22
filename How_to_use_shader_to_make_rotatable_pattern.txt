@@ -1,0 +1,30 @@
+This is an update with respect to what was discussed on Friday, January 22nd, 2022 at the start where I was showing how a custom shader on a player-controlled ball had the colors rotate the wrong way as it moves.
+The formula for creating a player controlled ball with colors that are able to persist and move correctly when the ball is rotated and moved is:
+Step 1: create a new scene
+Step 2: create a KinematicBody root node of the scene
+Step 3: create a CollisionShape child node (make the shape you want)
+Step 4: create a Spatial node that is a child of CollisionShape
+Step 5: create a MeshInstance node that is a child of Spatial (made the shape you want)
+Step 6: lock the Spatial node (use the seventh option to the right of the option to add a script to the node)
+Step 7: lock the MeshInstance (use the seventh option to the right of the option to add a script to the node)
+Step 8: In MeshInstance, select Material, then select new Shader Material, then select new Shader, then click on shader (should open a text entry box at the bottom of the screen)
+Step 9: write the following code:
+shader_type spatial;
+render_mode skip_vertex_transform;
+float f_red(vec3 thing) {
+	return .9; //put some code to figure out how the color red is used based on the location on the object. (0.0 to 1.0)
+}
+float f_green(vec3 thing) {
+	return .1; //code to figure out the color green from position on the object (0.0 to 1.0)
+}
+float f_blue(vec3 thing) {
+	return .42; //code to figure out blue from position on the object (0.0 to 1.0)
+}
+void vertex() {
+	COLOR = vec4(f_red(VERTEX), f_green(VERTEX), f_blue(VERTEX), 1.0);
+	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	NORMAL=normalize((MODELVIEW_MATRIX*vec4(NORMAL, 0.0)).xyz);
+}
+void fragment() {
+	ALBEDO=vec3(COLOR.x, COLOR.y, COLOR.z);
+}
