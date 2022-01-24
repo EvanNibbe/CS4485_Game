@@ -1,0 +1,14 @@
+How to Export and Use a Blender Texture in Godot
+1.  Open Blender
+2.  Open the file to use
+3.  File > Export > Wave Front .obj
+4.  Put the .obj file in imports folder
+5.  Export .obj
+6.  Enter GODOT
+7.  Allow time for Godot to import the new asset
+8.  Create new scene
+9.  Create new RigidBody from spatial node
+10. Add new CollisionShape to RigidBody
+11. Add new MeshInstance to RigidBody
+12. Enter Inspector in MeshInstance
+13. Select MeshInstance and Load .obj file
