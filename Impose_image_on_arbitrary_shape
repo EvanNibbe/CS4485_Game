@@ -1,0 +1,19 @@
+I finally figured out how to get an image (like a simple png) to be imposed on a shape!
+
+Step 0: have a .png image in the Imports folder of the Godot project
+
+Step 1: make the MeshInstance (presumably loading a .obj file into the “Mesh” option in the right properties panel)
+
+Step 2: click on “Material”
+
+Step 3: immediately below that there is a drop-down menu, choose “New SpatialMaterial”
+
+Step 4: click on the picture of the sphere created in step 3, this should then open up options starting with “render priority 0”
+
+Step 5: Click on the option labeled “Albedo”, then click right next to “Texture” where a drop down menu appears. 
+
+Step 6: choose “load”
+
+Step 7: choose the .png image from the Imports folder
+
+Step 8: scroll down to where you see the option “Uv 1”, open it, and make a blue check mark appear next to the word “Triplanar”.
