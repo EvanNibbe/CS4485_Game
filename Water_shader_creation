@@ -1,0 +1,14 @@
+A water shader is created as shown in the following video:
+https://youtu.be/7rGNoGZfRYg
+
+Step 1: create a MeshInstance 
+Step 2: create a new SpatialMaterial
+Step 3: set the flag Transparent (under the flags heading of Spatial Material)
+Step 4: change the albedo to have the color be light blue and have a small value for alpha
+Step 5: assign a texture to the normal map
+Step 6: enable refraction
+Step 7: scale the texture so that the waves look right
+Step 8: enable proximity fade, set to .5
+Step 9: press on the name to convert to ShaderMaterial
+Step 10: change where normal is assigned to a texture to have where the identifier base_uv be replaced with vec2(base_uv.x+TIME*.05, base_uv.y), then multiply the texture function and its parameters by a copy of itself, then change the copy to use base_uv.x+TIME*(-.05) instead of base_uv.x+TIME*.05
+Step 11: watch the video to look for steps missed here, and edit this file to include the missing steps.
